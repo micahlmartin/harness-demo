@@ -1,3 +1,8 @@
 harnessApiVersion: '1.0'
 type: APPLICATION_MANIFEST
-storeType: Local
+gitFileConfig:
+  branch: master
+  connectorName: micah-harness-examples
+  filePath: charts/httbin
+  useBranch: true
+storeType: Remote
