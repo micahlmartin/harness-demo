@@ -1,3 +1,0 @@
-envRaw:
-- name: HTTPBIN_HTTPBIN_HASH
-  value: "${serviceVariable.hash}"
