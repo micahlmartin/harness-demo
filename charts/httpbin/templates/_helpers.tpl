@@ -41,6 +41,8 @@ helm.sh/chart: {{ include "httbin.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+harness.io/release-name: {{ .Release.Name }}
+release: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
