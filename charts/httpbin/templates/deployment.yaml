@@ -4,6 +4,8 @@ metadata:
   name: {{ include "httbin.fullname" . }}
   labels:
     {{- include "httbin.labels" . | nindent 4 }}
+  annotations:
+    harness.io/release-name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:

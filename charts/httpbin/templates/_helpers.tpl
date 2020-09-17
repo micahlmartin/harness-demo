@@ -49,7 +49,6 @@ Selector labels
 {{- define "httbin.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "httbin.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
-harness.io/release-name: {{ .Release.Name }}
 {{- end -}}
 
 {{/*
