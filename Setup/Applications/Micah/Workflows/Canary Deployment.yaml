@@ -59,6 +59,35 @@ phases:
       value: DOCKER
     - name: entityType
       value: INFRASTRUCTURE_DEFINITION
+- type: KUBERNETES
+  computeProviderName: Micah Local
+  daemonSet: false
+  infraDefinitionName: k8s-dev
+  name: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING
+      name: Rollout Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Verify
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: httpbin
+  statefulSet: false
+  templateExpressions:
+  - expression: ${InfraDefinition_Kubernetes2}
+    fieldName: infraDefinitionId
+    metadata:
+    - name: artifactType
+      value: DOCKER
+    - name: entityType
+      value: INFRASTRUCTURE_DEFINITION
 rollbackPhases:
 - type: KUBERNETES
   computeProviderName: Micah Local
@@ -87,6 +116,36 @@ rollbackPhases:
       value: DOCKER
     - name: entityType
       value: INFRASTRUCTURE_DEFINITION
+- type: KUBERNETES
+  computeProviderName: Micah Local
+  daemonSet: false
+  infraDefinitionName: k8s-dev
+  name: Rollback Primary
+  phaseNameForRollback: Primary
+  phaseSteps:
+  - type: K8S_PHASE_STEP
+    name: Deploy
+    phaseStepNameForRollback: Deploy
+    statusForRollback: SUCCESS
+    steps:
+    - type: K8S_DEPLOYMENT_ROLLING_ROLLBACK
+      name: Rollback Deployment
+    stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Wrap Up
+    phaseStepNameForRollback: Wrap Up
+    stepsInParallel: false
+  provisionNodes: false
+  serviceName: httpbin
+  statefulSet: false
+  templateExpressions:
+  - expression: ${InfraDefinition_Kubernetes2}
+    fieldName: infraDefinitionId
+    metadata:
+    - name: artifactType
+      value: DOCKER
+    - name: entityType
+      value: INFRASTRUCTURE_DEFINITION
 templateExpressions:
 - expression: ${Environment}
   fieldName: envId
@@ -106,3 +165,8 @@ userVariables:
   fixed: false
   mandatory: true
   name: InfraDefinition_Kubernetes
+- type: ENTITY
+  description: Variable for Infrastructure Definition entity in Rollback Primary
+  fixed: false
+  mandatory: true
+  name: InfraDefinition_Kubernetes2
