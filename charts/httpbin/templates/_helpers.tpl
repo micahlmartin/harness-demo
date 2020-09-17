@@ -36,7 +36,6 @@ Common labels
 */}}
 {{- define "httbin.labels" -}}
 helm.sh/chart: {{ include "httbin.chart" . }}
-harness.io/release-name: {{ .Release.Name }}
 {{ include "httbin.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
