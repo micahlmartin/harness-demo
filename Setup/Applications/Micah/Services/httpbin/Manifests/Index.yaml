@@ -3,6 +3,6 @@ type: APPLICATION_MANIFEST
 gitFileConfig:
   branch: master
   connectorName: micah-harness-examples
-  filePath: charts/httbin
+  filePath: charts/httpbin
   useBranch: true
 storeType: Remote
