@@ -1,9 +1,5 @@
 harnessApiVersion: '1.0'
 type: SERVICE
 artifactType: DOCKER
-configVariables:
-- name: service-hash
-  value: NOT_SET
-  valueType: TEXT
 deploymentType: KUBERNETES
 helmVersion: V2
