@@ -86,10 +86,10 @@ phases:
         service2: ${k8s.stageServiceName}
     stepsInParallel: false
   - type: K8S_PHASE_STEP
-    name: Wrap Up
+    name: Shift 50% Traffic Before Switch
     stepsInParallel: false
   - type: K8S_PHASE_STEP
-    name: Shift 50% Traffic Before Switch
+    name: Wrap Up
     stepsInParallel: false
   provisionNodes: false
   serviceName: httpbin
