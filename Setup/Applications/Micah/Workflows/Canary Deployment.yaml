@@ -52,7 +52,7 @@ phases:
           #!/bin/bash
 
           echo "Pausing to replicate a verify step"
-          sleep 2m
+          sleep 1m
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
