@@ -126,6 +126,11 @@ phases:
         timeoutMillis: 86400000
         userGroups:
         - pwmrSFGkTxOnOPK6k2pIYw
+    - type: K8S_APPLY
+      name: Stage 25%
+      properties:
+        filePaths: charts/httpbin/templates/ingress-traffic-split25.yaml
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
