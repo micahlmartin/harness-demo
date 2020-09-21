@@ -75,6 +75,12 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Shift 50% Traffic Before Switch
+    steps:
+    - type: K8S_APPLY
+      name: Apply
+      properties:
+        filePaths: charts/httpbin/templates/ingress-traffic-split0.yaml
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
