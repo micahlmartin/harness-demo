@@ -118,6 +118,14 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Switch Remaining Traffic After Switch
+    steps:
+    - type: APPROVAL
+      name: Approve Primary 75%
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 86400000
+        userGroups:
+        - pwmrSFGkTxOnOPK6k2pIYw
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
