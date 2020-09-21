@@ -98,6 +98,11 @@ phases:
         timeoutMillis: 86400000
         userGroups:
         - pwmrSFGkTxOnOPK6k2pIYw
+    - type: K8S_APPLY
+      name: Apply 50%
+      properties:
+        filePaths: charts/httpbin/templates/ingress-traffic-split50.yaml
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
