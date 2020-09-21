@@ -147,8 +147,11 @@ phases:
     - type: K8S_APPLY
       name: Stage 0%
       properties:
-        filePaths: charts/httpbin/templates/ingress-traffic-split0.yaml
+        filePaths: templates/ingress-traffic-split0.yaml
         stateTimeoutInMinutes: 10
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
