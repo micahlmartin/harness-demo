@@ -51,6 +51,7 @@ phases:
         scriptString: |-
           #!/bin/bash
 
+          echo "Pausing to replicate a verify step"
           sleep 2m
         scriptType: BASH
         sshKeyRef: null
