@@ -134,6 +134,13 @@ phases:
       properties:
         filePaths: charts/httpbin/templates/ingress-traffic-split25.yaml
         stateTimeoutInMinutes: 10
+    - type: APPROVAL
+      name: Approve Primary 100%
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 86400000
+        userGroups:
+        - pwmrSFGkTxOnOPK6k2pIYw
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
