@@ -50,6 +50,28 @@ phases:
         templateExpressions: null
         templateVariables: ''
         timeoutMillis: 300000
+    - type: SHELL_SCRIPT
+      name: Verify
+      properties:
+        commandPath: null
+        connectionAttributes: null
+        executeOnDelegate: true
+        host: null
+        outputVars: ''
+        publishAsVar: false
+        scriptString: |-
+          #!/bin/bash
+
+          echo "Verifying Metrics"
+          sleep 2m
+        scriptType: BASH
+        sshKeyRef: null
+        sweepingOutputName: null
+        sweepingOutputScope: null
+        tags: null
+        templateExpressions: null
+        templateVariables: ''
+        timeoutMillis: 120000
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
