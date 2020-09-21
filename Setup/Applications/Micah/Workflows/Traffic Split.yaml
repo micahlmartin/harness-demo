@@ -28,28 +28,6 @@ phases:
     steps:
     - type: K8S_BLUE_GREEN_DEPLOY
       name: Stage Deployment
-    - type: SHELL_SCRIPT
-      name: Verify
-      properties:
-        commandPath: null
-        connectionAttributes: null
-        executeOnDelegate: true
-        host: null
-        outputVars: ''
-        publishAsVar: false
-        scriptString: |-
-          #!/bin/bash
-
-          echo "Verifying Metrics"
-          sleep 2m
-        scriptType: BASH
-        sshKeyRef: null
-        sweepingOutputName: null
-        sweepingOutputScope: null
-        tags: null
-        templateExpressions: null
-        templateVariables: ''
-        timeoutMillis: 120000
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Shift 50% Traffic Before Switch
