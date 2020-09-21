@@ -40,7 +40,6 @@ phases:
       properties:
         commandPath: null
         connectionAttributes: null
-        connectionType: SSH
         executeOnDelegate: true
         host: null
         outputVars: ''
@@ -55,8 +54,10 @@ phases:
         sweepingOutputScope: null
         tags: null
         templateExpressions: null
-        templateVariables: ''
-        timeoutMillis: 60000
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
+        timeoutMillis: 300000
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Wrap Up
