@@ -29,28 +29,6 @@ phases:
     - type: K8S_BLUE_GREEN_DEPLOY
       name: Stage Deployment
     - type: SHELL_SCRIPT
-      name: Generate Load
-      properties:
-        commandPath: null
-        connectionAttributes: null
-        executeOnDelegate: true
-        host: null
-        outputVars: ''
-        publishAsVar: false
-        scriptString: |-
-          #!/bin/bash
-
-          echo "Generating Load"
-          sleep 2m
-        scriptType: BASH
-        sshKeyRef: null
-        sweepingOutputName: null
-        sweepingOutputScope: null
-        tags: null
-        templateExpressions: null
-        templateVariables: ''
-        timeoutMillis: 300000
-    - type: SHELL_SCRIPT
       name: Verify
       properties:
         commandPath: null
