@@ -42,7 +42,7 @@ phases:
     - type: K8S_APPLY
       name: Stage 25%
       properties:
-        filePaths: templates/ingress-traffic-split0.yaml
+        filePaths: templates/ingress-traffic-split25.yaml
         stateTimeoutInMinutes: 10
         templateUuid: null
         templateVariables: null
