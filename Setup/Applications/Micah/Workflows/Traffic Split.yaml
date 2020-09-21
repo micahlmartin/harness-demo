@@ -91,6 +91,13 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
+    - type: APPROVAL
+      name: Approve 50%
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 86400000
+        userGroups:
+        - pwmrSFGkTxOnOPK6k2pIYw
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
