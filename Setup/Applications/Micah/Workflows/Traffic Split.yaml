@@ -91,6 +91,9 @@ phases:
   - type: K8S_PHASE_STEP
     name: Wrap Up
     stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Switch Remaining Traffic After Switch
+    stepsInParallel: false
   provisionNodes: false
   serviceName: httpbin
   statefulSet: false
