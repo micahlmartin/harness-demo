@@ -84,7 +84,7 @@ phases:
         userGroups:
         - pwmrSFGkTxOnOPK6k2pIYw
     - type: K8S_APPLY
-      name: Apply 25%
+      name: Stage 25%
       properties:
         filePaths: charts/httpbin/templates/ingress-traffic-split0.yaml
         stateTimeoutInMinutes: 10
