@@ -31,16 +31,6 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
-    steps:
-    - type: DATA_DOG
-      name: Datadog Metrics
-      properties:
-        analysisServerConfigId: I8k-4UunSgi3qtBNczV_FQ
-        analysisTolerance: LOW
-        comparisonStrategy: COMPARE_WITH_PREVIOUS
-        hostnameTemplate: ${host.hostName}
-        metrics: docker.cpu.usage
-        timeDuration: 5
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Route Update
