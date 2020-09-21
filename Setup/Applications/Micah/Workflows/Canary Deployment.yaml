@@ -109,11 +109,14 @@ rollbackPhases:
     phaseStepNameForRollback: Wrap Up
     steps:
     - type: K8S_DELETE
-      name: Delete Canary
+      name: Canary Delete
       properties:
         deleteNamespacesForRelease: false
-        resources: test
+        resources: ${k8s.canaryWorkload}
         stateTimeoutInMinutes: 10
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: false
   provisionNodes: false
   serviceName: httpbin
