@@ -99,10 +99,13 @@ phases:
         userGroups:
         - pwmrSFGkTxOnOPK6k2pIYw
     - type: K8S_APPLY
-      name: Apply 50%
+      name: Stage 50%
       properties:
         filePaths: charts/httpbin/templates/ingress-traffic-split50.yaml
         stateTimeoutInMinutes: 10
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
