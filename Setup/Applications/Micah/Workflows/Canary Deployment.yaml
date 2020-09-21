@@ -107,6 +107,13 @@ rollbackPhases:
   - type: K8S_PHASE_STEP
     name: Wrap Up
     phaseStepNameForRollback: Wrap Up
+    steps:
+    - type: K8S_DELETE
+      name: Delete Canary
+      properties:
+        deleteNamespacesForRelease: false
+        resources: test
+        stateTimeoutInMinutes: 10
     stepsInParallel: false
   provisionNodes: false
   serviceName: httpbin
