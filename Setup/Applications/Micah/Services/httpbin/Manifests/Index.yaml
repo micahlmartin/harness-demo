@@ -5,4 +5,4 @@ gitFileConfig:
   connectorName: micah-harness-examples
   filePath: charts/httpbin
   useBranch: true
-storeType: Remote
+storeType: HelmSourceRepo
