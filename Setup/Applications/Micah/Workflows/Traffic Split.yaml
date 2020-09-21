@@ -88,6 +88,9 @@ phases:
   - type: K8S_PHASE_STEP
     name: Wrap Up
     stepsInParallel: false
+  - type: K8S_PHASE_STEP
+    name: Shift 50% Traffic Before Switch
+    stepsInParallel: false
   provisionNodes: false
   serviceName: httpbin
   statefulSet: false
