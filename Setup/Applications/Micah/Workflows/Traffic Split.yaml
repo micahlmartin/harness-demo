@@ -74,10 +74,10 @@ phases:
         timeoutMillis: 120000
     stepsInParallel: false
   - type: K8S_PHASE_STEP
-    name: Verify
+    name: Shift 50% Traffic Before Switch
     stepsInParallel: false
   - type: K8S_PHASE_STEP
-    name: Shift 50% Traffic Before Switch
+    name: Verify
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Route Update
