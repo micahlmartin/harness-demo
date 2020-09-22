@@ -39,7 +39,7 @@ phases:
         - name: data
           valueType: TEXT
           value: ${json.list("data", httpResponseBody)}
-        sweepingOutputName: response
+        sweepingOutputName: vaultAnnotations
         sweepingOutputScope: WORKFLOW
         tags: null
         templateUuid: null
