@@ -2,4 +2,4 @@ image:
   tag: ${artifact.metadata.tag}
 
 vault:
-  annotations: "[{"test": 1}]"
+  annotations: '[{"test": 1}]'
