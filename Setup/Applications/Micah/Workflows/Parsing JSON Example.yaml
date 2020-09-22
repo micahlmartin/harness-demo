@@ -63,7 +63,9 @@ phases:
         scriptString: |-
           #!/bin/bash
 
-          echo "${VARS.FIELD}"
+          echo "${response.author}"
+          echo "${response.test}"
+          echo "${response}"
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
