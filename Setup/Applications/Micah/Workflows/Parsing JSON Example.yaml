@@ -60,9 +60,6 @@ phases:
         scriptString: |-
           #!/bin/bash
 
-          echo "${response.author}"
-          echo "${response.test}"
-          echo "${response.slideshow}"
           echo "${response}"
         scriptType: BASH
         sshKeyRef: null
