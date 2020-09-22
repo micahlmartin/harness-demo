@@ -40,7 +40,7 @@ phases:
           valueType: TEXT
           value: ${json.select("slideshow", httpResponseBody}
         sweepingOutputName: VARS
-        sweepingOutputScope: PHASE
+        sweepingOutputScope: WORKFLOW
         tags: null
         templateUuid: null
         templateVariables: null
