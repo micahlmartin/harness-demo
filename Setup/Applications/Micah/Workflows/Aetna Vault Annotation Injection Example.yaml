@@ -36,7 +36,7 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: data
+        - name: response
           valueType: TEXT
           value: ${httpResponseBody}
         sweepingOutputName: vaultData
