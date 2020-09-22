@@ -6,8 +6,8 @@ metadata:
     {{- include "httbin.labels" . | nindent 4 }}
   annotations:
     harness.io/release-name: {{ .Release.Name }}
-    {{- if .Value.vault.annotations}}
-    test-vault: "{{ .Value.vault.annotations }}"
+    {{- if .Values.vault.annotations}}
+    test-vault: "{{ .Values.vault.annotations }}"
     {{- end -}}
 spec:
   replicas: {{ .Values.replicaCount }}
