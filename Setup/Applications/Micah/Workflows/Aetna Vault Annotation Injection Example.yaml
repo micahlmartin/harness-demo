@@ -28,6 +28,26 @@ phases:
     steps:
     - type: K8S_DEPLOYMENT_ROLLING
       name: Rollout Deployment
+    - type: HTTP
+      name: HTTP
+      properties:
+        assertion: ''
+        body: ''
+        executeWithPreviousSteps: false
+        header: ''
+        method: GET
+        publishAsVar: true
+        responseProcessingExpressions:
+        - name: SLIDESHOW
+          valueType: TEXT
+          value: ${jsonpath('slideshow')}
+        sweepingOutputName: vaultData
+        sweepingOutputScope: WORKFLOW
+        tags: null
+        templateVariables: ''
+        timeoutMillis: 10000
+        url: https://httbin.org/json
+        useProxy: false
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Verify
