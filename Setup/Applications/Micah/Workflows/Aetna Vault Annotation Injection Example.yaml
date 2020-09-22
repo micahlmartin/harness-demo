@@ -60,7 +60,7 @@ phases:
         scriptString: |-
           #!/bin/bash
 
-          echo ""${context.vaultData}""
+          echo '${context.vaultData}'
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
