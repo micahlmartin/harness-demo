@@ -42,6 +42,9 @@ phases:
         - name: test
           valueType: TEXT
           value: foo
+        - name: slideshow
+          valueType: TEXT
+          value: ${json.object(httpResponseBody).slideshow}
         sweepingOutputName: response
         sweepingOutputScope: WORKFLOW
         tags: null
