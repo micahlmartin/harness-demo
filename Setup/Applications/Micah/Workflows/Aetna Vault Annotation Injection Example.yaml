@@ -42,9 +42,11 @@ phases:
         sweepingOutputName: vaultData
         sweepingOutputScope: WORKFLOW
         tags: null
-        templateVariables: ''
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
         timeoutMillis: 10000
-        url: https://httbin.org/json
+        url: https://httpbin.org/json
         useProxy: false
     - type: SHELL_SCRIPT
       name: Shell Script
