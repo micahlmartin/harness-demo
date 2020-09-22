@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: FIELD
           valueType: TEXT
-          value: ${json.select("slideshow", httpResponseBody)}
+          value: ${httpResponseBody}
         sweepingOutputName: VARS
         sweepingOutputScope: WORKFLOW
         tags: null
