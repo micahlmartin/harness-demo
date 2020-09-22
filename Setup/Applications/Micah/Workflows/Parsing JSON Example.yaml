@@ -36,10 +36,13 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: FIELD
+        - name: author
           valueType: TEXT
-          value: ${httpResponseBody}
-        sweepingOutputName: VARS
+          value: ${json.select("slideshow.author", httpResponseBody)}
+        - name: test
+          valueType: TEXT
+          value: foo
+        sweepingOutputName: response
         sweepingOutputScope: WORKFLOW
         tags: null
         templateUuid: null
