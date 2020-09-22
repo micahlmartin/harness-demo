@@ -7,7 +7,7 @@ metadata:
   annotations:
     harness.io/release-name: {{ .Release.Name }}
     {{- if .Value.vault.annotations}}
-    {{ .Value.Vault.annotations }}
+    test-vault: "{{ .Value.vault.annotations }}"
     {{- end -}}
 spec:
   replicas: {{ .Values.replicaCount }}
