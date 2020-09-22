@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: author
           valueType: TEXT
-          value: ${json.select("slideshow.author", httpResponseBody)}
+          value: ${json.select("slideshow", httpResponseBody)}
         - name: test
           valueType: TEXT
           value: foo
