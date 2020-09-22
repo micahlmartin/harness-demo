@@ -36,9 +36,9 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: response
+        - name: SLIDESHOW
           valueType: TEXT
-          value: ${httpResponseBody}
+          value: ${json.select("slideshow", httpResponseBody)}
         sweepingOutputName: vaultData
         sweepingOutputScope: WORKFLOW
         tags: null
