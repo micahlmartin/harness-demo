@@ -36,15 +36,9 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: author
+        - name: data
           valueType: TEXT
-          value: ${json.select("slideshow", httpResponseBody)}
-        - name: test
-          valueType: TEXT
-          value: foo
-        - name: slideshow
-          valueType: TEXT
-          value: ${json.object(httpResponseBody).slideshow}
+          value: ${json.list("data", httpResponseBody)}
         sweepingOutputName: response
         sweepingOutputScope: WORKFLOW
         tags: null
@@ -52,7 +46,7 @@ phases:
         templateVariables: null
         templateVersion: null
         timeoutMillis: 10000
-        url: https://httpbin.org/json
+        url: https://pastebin.com/raw/nAkCgffH
         useProxy: false
     - type: SHELL_SCRIPT
       name: Shell Script
