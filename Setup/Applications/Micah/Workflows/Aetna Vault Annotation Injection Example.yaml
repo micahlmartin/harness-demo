@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: response
           valueType: TEXT
-          value: ${httpResponseBody}
+          value: ${json.select(".", httpResponseBody)}
         sweepingOutputName: vaultData
         sweepingOutputScope: WORKFLOW
         tags: null
