@@ -1,2 +1,5 @@
 image:
   tag: ${artifact.metadata.tag}
+
+vault:
+  annotations: ""
