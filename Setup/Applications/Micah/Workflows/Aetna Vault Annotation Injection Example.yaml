@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: SLIDESHOW
           valueType: TEXT
-          value: ${jsonpath('slideshow')}
+          value: ${json.select('slideshow')}
         sweepingOutputName: vaultData
         sweepingOutputScope: WORKFLOW
         tags: null
