@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: SLIDESHOW
           valueType: TEXT
-          value: ${httpResponseBody}
+          value: ${httpResponseBody.slideshow}
         sweepingOutputName: vaultData
         sweepingOutputScope: WORKFLOW
         tags: null
