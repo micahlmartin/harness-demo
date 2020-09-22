@@ -6,6 +6,9 @@ metadata:
     {{- include "httbin.labels" . | nindent 4 }}
   annotations:
     harness.io/release-name: {{ .Release.Name }}
+    {{- if .Value.vault.annotations}}
+    {{ .Value.Vault.annotations }}
+    {{- end -}}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
