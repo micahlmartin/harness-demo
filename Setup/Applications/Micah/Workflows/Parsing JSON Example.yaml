@@ -26,28 +26,6 @@ phases:
   - type: K8S_PHASE_STEP
     name: Deploy
     steps:
-    - type: HTTP
-      name: Fetch Vault Data
-      properties:
-        assertion: ''
-        body: ''
-        executeWithPreviousSteps: false
-        header: ''
-        method: GET
-        publishAsVar: true
-        responseProcessingExpressions:
-        - name: body
-          valueType: TEXT
-          value: ${httpResponseBody}
-        sweepingOutputName: response
-        sweepingOutputScope: PHASE
-        tags: null
-        templateUuid: null
-        templateVariables: null
-        templateVersion: null
-        timeoutMillis: 10000
-        url: https://pastebin.com/raw/b859r0Jm
-        useProxy: false
     - type: SHELL_SCRIPT
       name: Parse Annoations
       properties:
