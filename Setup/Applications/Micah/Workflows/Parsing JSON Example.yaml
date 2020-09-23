@@ -36,11 +36,11 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: response
+        - name: body
           valueType: TEXT
           value: httpResponseBody
-        sweepingOutputName: vaultAnnotations
-        sweepingOutputScope: WORKFLOW
+        sweepingOutputName: response
+        sweepingOutputScope: PHASE
         tags: null
         templateUuid: null
         templateVariables: null
