@@ -26,8 +26,8 @@ podSecurityContext: {}
   # fsGroup: 2000
 
 vault:
-  annotations: ""
-
+  annotations: {}
+  
 securityContext: {}
   # capabilities:
   #   drop:

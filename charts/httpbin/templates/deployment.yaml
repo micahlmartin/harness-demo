@@ -1,3 +1,4 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -7,8 +8,7 @@ metadata:
   annotations:
     harness.io/release-name: {{ .Release.Name }}
     {{- if .Values.vault.annotations }}
-    test: |
-      {{ .Values.vault.annotations | toJson | toYaml }}
+    {{ .Values.vault.annotations | toYaml | nindent 4 }}
     {{- end }}
     
 spec:
