@@ -62,7 +62,7 @@ phases:
 
           set -xeo pipefail
 
-          echo "${response.body}"
+          # echo "${response.body}"
           annotations=$(echo "${response.body}" | jq -r ".data | add")
 
           export annotations
