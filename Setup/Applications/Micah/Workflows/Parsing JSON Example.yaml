@@ -62,10 +62,10 @@ phases:
 
           set -xeo pipefail
 
-          # echo "${response.body}"
-          annotations=$(echo "${response.body}" | jq -r ".data | add")
+          echo "${response.body}"
 
-          export annotations
+
+          export annotations="test"
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: vaultData
