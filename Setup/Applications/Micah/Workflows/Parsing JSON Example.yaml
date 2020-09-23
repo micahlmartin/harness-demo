@@ -38,7 +38,7 @@ phases:
         responseProcessingExpressions:
         - name: body
           valueType: TEXT
-          value: httpResponseBody
+          value: ${httpResponseBody}
         sweepingOutputName: response
         sweepingOutputScope: PHASE
         tags: null
