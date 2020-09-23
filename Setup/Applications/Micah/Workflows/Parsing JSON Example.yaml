@@ -40,7 +40,7 @@ phases:
 
           set -eo pipefail
 
-          export annotations=$(curl -Ss https://pastebin.com/raw/b859r0Jm | jq ".data | add")
+          export annotations=$(curl -Ss https://pastebin.com/raw/b859r0Jm | jq -r ".data | add")
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: vaultData
