@@ -60,6 +60,9 @@ phases:
         scriptString: |
           #!/bin/bash
 
+          set -xeo pipefail
+
+          echo "${response.body}"
           annotations=$(echo "${response.body}" | jq -r ".data | add")
 
           export annotations
