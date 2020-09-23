@@ -62,11 +62,7 @@ phases:
 
           set -eo pipefail
 
-          echo "${response.body}"
-          curl -Ss https://pastebin.com/raw/b859r0Jm | jq ".data | add"
-
-
-          export annotations="test"
+          export annotations=$(curl -Ss https://pastebin.com/raw/b859r0Jm | jq ".data | add")
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: vaultData
