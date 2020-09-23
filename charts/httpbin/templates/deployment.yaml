@@ -6,7 +6,7 @@ metadata:
     {{- include "httbin.labels" . | nindent 4 }}
   annotations:
     harness.io/release-name: {{ .Release.Name }}
-    {{- if .Values.vault.annotations -}}
+    {{- if .Values.vault.annotations }}
     test: |
       {{ .Values.vault.annotations }}
     {{- end }}
