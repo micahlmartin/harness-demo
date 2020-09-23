@@ -49,23 +49,24 @@ phases:
         url: https://pastebin.com/raw/b859r0Jm
         useProxy: false
     - type: SHELL_SCRIPT
-      name: Shell Script
+      name: Parse Annoations
       properties:
         commandPath: null
         connectionAttributes: null
         executeOnDelegate: true
         host: null
-        outputVars: ''
-        publishAsVar: false
-        scriptString: |+
+        outputVars: annotations
+        publishAsVar: true
+        scriptString: |
           #!/bin/bash
 
-          echo "${vaultAnnotations}" | jq "add"
+          annotations=$(echo "${response.body}" | jq -r ".data | add")
 
+          export annotations
         scriptType: BASH
         sshKeyRef: null
-        sweepingOutputName: null
-        sweepingOutputScope: null
+        sweepingOutputName: vaultData
+        sweepingOutputScope: WORKFLOW
         tags: null
         templateExpressions: null
         templateUuid: null
