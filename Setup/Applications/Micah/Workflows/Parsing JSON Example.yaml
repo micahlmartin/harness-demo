@@ -27,7 +27,7 @@ phases:
     name: Deploy
     steps:
     - type: SHELL_SCRIPT
-      name: Parse Annoations
+      name: Fetch and Parse Vault Annotations
       properties:
         commandPath: null
         connectionAttributes: null
