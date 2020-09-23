@@ -27,7 +27,7 @@ phases:
     name: Deploy
     steps:
     - type: HTTP
-      name: HTTP with JSON
+      name: Fetch Vault Data
       properties:
         assertion: ''
         body: ''
