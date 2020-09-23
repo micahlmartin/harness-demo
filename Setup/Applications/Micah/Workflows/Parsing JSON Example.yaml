@@ -57,10 +57,7 @@ phases:
         host: null
         outputVars: ''
         publishAsVar: false
-        scriptString: |-
-          #!/bin/bash
-
-          echo "${vaultAnnotations}"
+        scriptString: "#!/bin/bash\n\necho \"${vaultAnnotations}\" | jq \n\n"
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
