@@ -63,7 +63,7 @@ phases:
           set -eo pipefail
 
           echo "${response.body}"
-          curl -Ss https://pastebin.com/raw/b859r0Jm | jq
+          curl -Ss https://pastebin.com/raw/b859r0Jm | jq "."
 
 
           export annotations="test"
