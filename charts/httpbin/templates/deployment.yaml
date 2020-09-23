@@ -7,7 +7,8 @@ metadata:
   annotations:
     harness.io/release-name: {{ .Release.Name }}
     {{- if .Values.vault.annotations -}}
-    {{ .Values.vault.annotations | toJson | toYaml | nindent 4 }}
+    test: |
+      {{ .Values.vault.annotations | toJson | toYaml | nindent 4 }}
     {{- end }}
     
 spec:
