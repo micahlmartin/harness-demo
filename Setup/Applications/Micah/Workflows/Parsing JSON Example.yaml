@@ -36,9 +36,9 @@ phases:
         method: GET
         publishAsVar: true
         responseProcessingExpressions:
-        - name: data
+        - name: response
           valueType: TEXT
-          value: ${json.list("data", httpResponseBody)}
+          value: httpResponseBody
         sweepingOutputName: vaultAnnotations
         sweepingOutputScope: WORKFLOW
         tags: null
@@ -46,7 +46,7 @@ phases:
         templateVariables: null
         templateVersion: null
         timeoutMillis: 10000
-        url: https://pastebin.com/raw/nAkCgffH
+        url: https://pastebin.com/raw/b859r0Jm
         useProxy: false
     - type: SHELL_SCRIPT
       name: Shell Script
