@@ -1,2 +1,0 @@
-jobId: ${workflow.variables.jobid}
-jobparams: ${workflow.variables.jobparams}
