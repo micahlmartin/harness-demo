@@ -1,7 +1,4 @@
 image:
   tag: ${artifact.metadata.tag}
 
-vault:
-  annotations: ${vaultData.annotations}
-
 autoscaling.enabled: true
