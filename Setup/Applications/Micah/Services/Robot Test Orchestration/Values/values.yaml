@@ -1,2 +1,2 @@
-jobId: ${serviceVariable.jobid}
-jobparams: ${serviceVariable.jobparams}
+jobId: ${workflow.variables.jobid}
+jobparams: ${workflow.variables.jobparams}
