@@ -54,11 +54,11 @@
 #         {{- toYaml . | nindent 8 }}
 #     {{- end }}
 
-
+{{ range .Values.jobParams }}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "job.fullname" . }}
+  name: {{ include "job.fullname" . }}-{{.Values.jobId }}
   labels:
     {{- include "job.labels" . | nindent 4 }}
   annotation:
@@ -72,3 +72,4 @@ spec:
         command: ["perl",  "{{ .Values.jobParameters }}"]
       restartPolicy: Never
   backoffLimit: 4
+{{- end }}

@@ -2,10 +2,10 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ include "httbin.fullname" . }}-svc-stage
+  name: {{ include "httpbin.fullname" . }}-svc-stage
   
   labels:
-    app: {{ include "httbin.fullname" . }}
+    app: {{ include "httpbin.fullname" . }}
   annotations:
     kubernetes.io/ingress.class: "nginx"
 
@@ -14,9 +14,9 @@ metadata:
     nginx.ingress.kubernetes.io/canary-weight: "0"
 spec:
   rules:
-  - host: {{ include "httbin.fullname" . }}.com
+  - host: {{ include "httpbin.fullname" . }}.com
     http:
       paths:
       - backend:
-          serviceName: {{ include "httbin.fullname" . }}-svc-stage
+          serviceName: {{ include "httpbin.fullname" . }}-svc-stage
           servicePort: 80
