@@ -5,8 +5,5 @@ configVariables:
 - name: jobparams
   value: NA
   valueType: TEXT
-- name: jobid
-  value: NA
-  valueType: TEXT
 deploymentType: KUBERNETES
 helmVersion: V2
