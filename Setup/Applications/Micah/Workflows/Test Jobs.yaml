@@ -61,4 +61,13 @@ rollbackPhases:
   provisionNodes: false
   serviceName: Robot Test Orchestration
   statefulSet: false
-templatized: false
+templatized: true
+userVariables:
+- type: TEXT
+  fixed: false
+  mandatory: true
+  name: jobid
+- type: TEXT
+  fixed: false
+  mandatory: true
+  name: jobparams
