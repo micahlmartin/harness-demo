@@ -5,6 +5,8 @@
 replicaCount: 1
 
 jobId: xyz
+jobParameters: []
+
 
 image:
   repository: nginx
