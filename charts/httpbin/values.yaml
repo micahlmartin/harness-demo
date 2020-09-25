@@ -43,9 +43,6 @@ serviceAccount:
 
 podSecurityContext: {}
   # fsGroup: 2000
-
-vault:
-  annotations: {}
   
 securityContext: {}
   # capabilities:
