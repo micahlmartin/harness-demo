@@ -4,3 +4,8 @@ executionName: Test Jobs
 executionType: Workflow
 triggerCondition:
 - type: WEBHOOK
+workflowVariables:
+- name: jobid
+  value: NA
+- name: jobparams
+  value: NA
