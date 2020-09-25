@@ -3,3 +3,5 @@ image:
 
 vault:
   annotations: ${vaultData.annotations}
+
+autoscaling.enabled: true
