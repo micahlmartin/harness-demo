@@ -7,3 +7,6 @@ resources:
   requests:
     cpu: 100m
     memory: 4Mi
+
+autoscaling:
+  enabled: true
