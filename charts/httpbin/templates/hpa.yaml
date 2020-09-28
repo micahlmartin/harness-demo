@@ -12,6 +12,7 @@ spec:
     name: {{ include "httpbin.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
-  metrics:
-    {{- toYaml .Values.autoscaling.metrics | nindent 4 }}
+  targetCPUUtilizationPercentage: 10
+  # metrics:
+  #   {{- toYaml .Values.autoscaling.metrics | nindent 4 }}
 {{- end }}
