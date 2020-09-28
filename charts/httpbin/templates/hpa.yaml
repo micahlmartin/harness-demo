@@ -13,6 +13,4 @@ spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   targetCPUUtilizationPercentage: 10
-  # metrics:
-  #   {{- toYaml .Values.autoscaling.metrics | nindent 4 }}
 {{- end }}
