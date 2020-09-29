@@ -6,4 +6,4 @@ infrastructure:
 - type: DIRECT_KUBERNETES
   cloudProviderName: micah-gke
   namespace: ${env.name}
-  releaseName: release-${infra.kubernetes.infraId}
+  releaseName: ${service.name}
