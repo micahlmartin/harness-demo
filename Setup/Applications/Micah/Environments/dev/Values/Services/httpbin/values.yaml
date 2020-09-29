@@ -1,10 +1,10 @@
-resources:
-  limits:
-    cpu: "1"
-    memory: 4Mi
-  requests:
-    cpu: "0.5"
-    memory: 4Mi
+#resources:
+#  limits:
+#    cpu: "1"
+#    memory: 4Mi
+#  requests:
+#    cpu: "0.5"
+#    memory: 4Mi
 
 autoscaling:
   enabled: true
