@@ -1,10 +1,25 @@
 resources:
  limits:
-  #  cpu: "1000m"
-  #  memory: 16Mi
+   cpu: "1"
+   memory: 128Mi
  requests:
-  #  cpu: "100m"
-   memory: 8Mi
+   cpu: "0.5"
+   memory: 32Mi
 
 autoscaling:
   enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 20
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 20
