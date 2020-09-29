@@ -13,6 +13,8 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+domain: test.com
+
 # Enable autoscaling using HorizontalPodAutoscaler
 autoscaling:
   enabled: false
