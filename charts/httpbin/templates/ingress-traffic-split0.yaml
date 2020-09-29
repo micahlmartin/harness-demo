@@ -14,8 +14,7 @@ metadata:
     nginx.ingress.kubernetes.io/canary-weight: "0"
 spec:
   rules:
-  - host: {{ include "httpbin.fullname" . }}.com
-    http:
+  - http:
       paths:
       - backend:
           serviceName: {{ include "httpbin.fullname" . }}-svc-stage
