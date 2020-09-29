@@ -1,5 +1,5 @@
 image:
   tag: ${artifact.metadata.tag}
-  repository: ${artifact.metadata.image}
+  repository: ${artifact.source.repositoryName}
 
 autoscaling.enabled: true
