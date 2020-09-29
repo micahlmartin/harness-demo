@@ -1,10 +1,10 @@
 resources:
  limits:
   #  cpu: "1000m"
-   memory: 16Mi
+  #  memory: 16Mi
  requests:
   #  cpu: "100m"
-   memory: 4Mi
+   memory: 8Mi
 
 autoscaling:
   enabled: true
