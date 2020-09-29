@@ -22,4 +22,4 @@ autoscaling:
       name: memory
       target:
         type: Utilization
-        averageUtilization: 20
+        averageUtilization: 50
