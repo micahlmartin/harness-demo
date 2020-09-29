@@ -5,6 +5,7 @@ metadata:
   name: {{ include "httpbin.fullname" . }}
   labels:
     {{- include "httpbin.labels" . | nindent 4 }}
+    harness.io/color: green
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
