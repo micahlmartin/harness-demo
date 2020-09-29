@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "httpbin.fullname" . }}-svc-primary
+  labels:
+    {{- include "httpbin.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - http:
+     paths:
+      - backend:
+          serviceName: {{ include "httpbin.fullname" . }}-svc-primary
+          servicePort: 80
