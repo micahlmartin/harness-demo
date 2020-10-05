@@ -2,7 +2,7 @@ harnessApiVersion: '1.0'
 type: APPLICATION_MANIFEST
 gitFileConfig:
   branch: master
-  connectorName: harnessu_admin_workloads
+  connectorName: harnessu_fundamentals_workloads
   useBranch: true
   useInlineServiceDefinition: false
 kustomizeConfig:
