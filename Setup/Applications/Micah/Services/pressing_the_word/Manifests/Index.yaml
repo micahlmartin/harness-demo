@@ -3,7 +3,8 @@ type: APPLICATION_MANIFEST
 gitFileConfig:
   branch: master
   connectorName: harnessu_admin_workloads
-  filePath: wordpress
   useBranch: true
   useInlineServiceDefinition: false
-storeType: Remote
+kustomizeConfig:
+  kustomizeDirPath: wordpress
+storeType: KustomizeSourceRepo
