@@ -1,5 +1,5 @@
 name: webfrontend-student101
-replicas: 1
+replicas: 5
 
 image: ${artifact.metadata.image}
 dockercfg: ${artifact.source.dockerconfig}
