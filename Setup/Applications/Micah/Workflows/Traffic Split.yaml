@@ -121,14 +121,21 @@ phases:
         host: null
         outputVars: ''
         publishAsVar: false
-        scriptString: kubectl scale deploy -n ${infra.kubernetes.namespace} $(kubectl get deploy -n ${infra.kubernetes.namespace} -o jsonpath='{.items[?(@.spec.selector.matchLabels.harness\.io/color=="'$(kubectl get ${k8s.stageServiceName} -n ${infra.kubernetes.namespace} -o jsonpath='{.spec.selector.harness\.io/color}')'")].metadata.name}') --replicas=0
+        scriptString: |-
+          #!/bin/bash
+
+          set -x
+
+          kubectl scale deploy -n ${infra.kubernetes.namespace} $(kubectl get deploy -n ${infra.kubernetes.namespace} -o jsonpath='{.items[?(@.spec.selector.matchLabels.harness\.io/color=="'$(kubectl get ${k8s.stageServiceName} -n ${infra.kubernetes.namespace} -o jsonpath='{.spec.selector.harness\.io/color}')'")].metadata.name}') --replicas=0
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
         sweepingOutputScope: null
         tags: null
         templateExpressions: null
-        templateVariables: ''
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
         timeoutMillis: 60000
     stepsInParallel: false
   provisionNodes: false
