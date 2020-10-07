@@ -236,3 +236,9 @@ userVariables:
   fixed: false
   mandatory: true
   name: InfraDefinition_KUBERNETES
+- type: TEXT
+  allowedValues: true,false
+  fixed: false
+  mandatory: false
+  name: skip_approvals
+  value: 'false'
