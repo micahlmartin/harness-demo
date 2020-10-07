@@ -86,6 +86,15 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Switch Remaining Traffic After Switch
+    stepSkipStrategies:
+    - assertionExpression: ${workflow.variables.skip_approvals}=='true'
+      scope: SPECIFIC_STEPS
+      steps:
+      - Approve Primary 100%
+    - assertionExpression: ${workflow.variables.skip_approvals}=='true'
+      scope: SPECIFIC_STEPS
+      steps:
+      - Approve Primary 75%
     steps:
     - type: APPROVAL
       name: Approve Primary 75%
