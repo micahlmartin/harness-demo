@@ -31,6 +31,15 @@ phases:
     stepsInParallel: false
   - type: K8S_PHASE_STEP
     name: Shift 50% Traffic Before Switch
+    stepSkipStrategies:
+    - assertionExpression: ${workflow.variables.skip_approvals}=='true'
+      scope: SPECIFIC_STEPS
+      steps:
+      - Approve 50%
+    - assertionExpression: ${workflow.variables.skip_approvals}=='true'
+      scope: SPECIFIC_STEPS
+      steps:
+      - Approve 25%
     steps:
     - type: K8S_APPLY
       name: Stage 25%
