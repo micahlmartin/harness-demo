@@ -41,6 +41,13 @@ phases:
       steps:
       - Approve 25%
     steps:
+    - type: APPROVAL
+      name: Approve 25%
+      properties:
+        approvalStateType: USER_GROUP
+        timeoutMillis: 86400000
+        userGroups:
+        - pwmrSFGkTxOnOPK6k2pIYw
     - type: K8S_APPLY
       name: Stage 25%
       properties:
@@ -49,13 +56,6 @@ phases:
         templateUuid: null
         templateVariables: null
         templateVersion: null
-    - type: APPROVAL
-      name: Approve 25%
-      properties:
-        approvalStateType: USER_GROUP
-        timeoutMillis: 86400000
-        userGroups:
-        - pwmrSFGkTxOnOPK6k2pIYw
     - type: APPROVAL
       name: Approve 50%
       properties:
