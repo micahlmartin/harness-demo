@@ -1,7 +1,0 @@
-harnessApiVersion: '1.0'
-type: AMI
-amiFilters:
-- name: ami-name
-  value: 'ami4amiLabs '
-region: us-east-2
-serverName: micah-aws-training
