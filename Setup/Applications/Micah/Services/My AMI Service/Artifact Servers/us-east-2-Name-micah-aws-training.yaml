@@ -1,0 +1,7 @@
+harnessApiVersion: '1.0'
+type: AMI
+amiTags:
+- name: Name
+  value: micah-aws-training
+region: us-east-2
+serverName: micah-aws-training
