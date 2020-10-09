@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: ARTIFACTORY
+artifactPattern: demo/sample-app/*/*.zip
+metadataOnly: true
+repositoryName: cf-tutorial
+repositoryType: any
+serverName: Harness Artifactory
+useDockerFormat: false
