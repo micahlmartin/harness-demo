@@ -20,3 +20,6 @@ applications:
   memory: ((PCF_APP_MEMORY))
   instances : ((INSTANCES))
   random-route: true
+  buildpacks:
+  - binary_buildpack
+  
