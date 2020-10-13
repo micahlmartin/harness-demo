@@ -51,7 +51,7 @@ phases:
         scriptString: |-
           echo "${terraform}"
 
-          echo "${terraformPlan.tfplan}"
+          echo "${terraformApply.tfplan}"
         scriptType: BASH
         sshKeyRef: null
         sweepingOutputName: null
