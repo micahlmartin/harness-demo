@@ -62,6 +62,18 @@ phases:
         templateVariables: null
         templateVersion: null
         timeoutMillis: 60000
+    - type: TERRAFORM_APPLY
+      name: Terraform Apply
+      properties:
+        delegateTag: ''
+        exportPlanToApplyStep: false
+        inheritApprovedPlan: true
+        name: Terraform Apply
+        provisionerName: terraform demo
+        runPlanOnly: false
+        tfVarFiles: null
+        timeoutMillis: 300000
+        workspace: ''
     stepsInParallel: false
   - type: WRAP_UP
     name: Wrap Up
