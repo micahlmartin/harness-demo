@@ -1,0 +1,8 @@
+harnessApiVersion: '1.0'
+type: TERRAFORM
+path: terraform/demo
+sourceRepoBranch: master
+sourceRepoSettingName: micah-harness-examples
+variables:
+- name: foo
+  valueType: TEXT
