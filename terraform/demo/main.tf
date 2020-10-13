@@ -1,3 +1,7 @@
+variable "foo" {
+  type = string
+  description = "Some var"
+}
 output "foo" {
-  value = "1"
+  value = foo
 }
