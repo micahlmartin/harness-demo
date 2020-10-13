@@ -17,6 +17,25 @@ phases:
     stepsInParallel: false
   - type: COLLECT_ARTIFACT
     name: Collect Artifact
+    steps:
+    - type: TERRAFORM_APPLY
+      name: Terraform Apply
+      properties:
+        backendConfigs: null
+        delegateTag: micah-gke-sasyuu-0
+        exportPlanToApplyStep: false
+        inheritApprovedPlan: false
+        name: Terraform Apply
+        provisionerName: terraform demo
+        runPlanOnly: false
+        targets: null
+        tfVarFiles: null
+        timeoutMillis: 300000
+        variables:
+        - name: foo
+          value: test
+          valueType: TEXT
+        workspace: ''
     stepsInParallel: false
   - type: WRAP_UP
     name: Wrap Up
