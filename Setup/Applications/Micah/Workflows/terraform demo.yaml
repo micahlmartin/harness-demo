@@ -19,13 +19,13 @@ phases:
     name: Collect Artifact
     steps:
     - type: TERRAFORM_APPLY
-      name: Terraform Apply
+      name: Terraform Plan
       properties:
         backendConfigs: null
         delegateTag: micah-gke-sasyuu-0
         exportPlanToApplyStep: false
         inheritApprovedPlan: false
-        name: Terraform Apply
+        name: Terraform Plan
         provisionerName: terraform demo
         runPlanOnly: true
         targets: null
