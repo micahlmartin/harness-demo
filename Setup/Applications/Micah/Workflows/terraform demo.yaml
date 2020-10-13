@@ -27,8 +27,11 @@ phases:
         inheritApprovedPlan: false
         name: Terraform Apply
         provisionerName: terraform demo
-        runPlanOnly: false
+        runPlanOnly: true
         targets: null
+        templateUuid: null
+        templateVariables: null
+        templateVersion: null
         tfVarFiles: null
         timeoutMillis: 300000
         variables:
