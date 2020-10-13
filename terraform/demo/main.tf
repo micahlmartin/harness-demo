@@ -3,5 +3,5 @@ variable "foo" {
   description = "Some var"
 }
 output "foo" {
-  value = foo
+  value = var.foo
 }
