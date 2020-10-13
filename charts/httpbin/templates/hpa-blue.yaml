@@ -14,5 +14,5 @@ spec:
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
-    {{- toYaml .Values.autoscaling.metrics | nindent 4 }}
+    {{ toYaml .Values.autoscaling.metrics | nindent 4 }}
 {{- end }}
