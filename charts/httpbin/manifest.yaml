@@ -1,0 +1,260 @@
+---
+# Source: httpbin/templates/namespace.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: default
+---
+# Source: httpbin/templates/serviceaccount.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: httpbin
+  labels:
+    helm.sh/chart: httpbin-0.1.0
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+    harness.io/release-name: httpbin
+    release: httpbin
+---
+# Source: httpbin/templates/service-primary.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin-svc-primary
+  labels:
+    helm.sh/chart: httpbin-0.1.0
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+    harness.io/release-name: httpbin
+    release: httpbin
+  annotations:
+    harness.io/primary-service: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+---
+# Source: httpbin/templates/service-stage.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: httpbin-svc-stage
+  labels:
+    helm.sh/chart: httpbin-0.1.0
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+    harness.io/release-name: httpbin
+    release: httpbin
+  annotations:
+    harness.io/stage-service: "true"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+---
+# Source: httpbin/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpbin
+  labels:
+    helm.sh/chart: httpbin-0.1.0
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+    harness.io/release-name: httpbin
+    release: httpbin
+  annotations:
+    harness.io/release-name: httpbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: httpbin
+      app.kubernetes.io/instance: httpbin
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: httpbin
+        app.kubernetes.io/instance: httpbin
+      annotations:
+        harness.io/release-name: httpbin
+    spec:
+      serviceAccountName: httpbin
+      securityContext:
+        {}
+      containers:
+        - name: httpbin
+          securityContext:
+            {}
+          image: "micahlmartin/httpbin-tags:blue"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            null
+---
+# Source: httpbin/templates/ingress-primary.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpbin-svc-primary
+  labels:
+    helm.sh/chart: httpbin-0.1.0
+    app.kubernetes.io/name: httpbin
+    app.kubernetes.io/instance: httpbin
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+    harness.io/release-name: httpbin
+    release: httpbin
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: test.com
+    http:
+     paths:
+      - backend:
+          serviceName: httpbin-svc-primary
+          servicePort: 80
+---
+# Source: httpbin/templates/ingress-traffic-split0.yaml
+# harness.io/skip-file-for-deploy
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpbin-svc-stage
+  
+  labels:
+    app: httpbin
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "0"
+spec:
+  rules:
+  - host: test.com
+    http:
+      paths:
+      - backend:
+          serviceName: httpbin-svc-stage
+          servicePort: 80
+---
+# Source: httpbin/templates/ingress-traffic-split25.yaml
+# harness.io/skip-file-for-deploy
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpbin-svc-stage
+  labels:
+    app: httpbin
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "25"
+spec:
+  rules:
+  - host: test.com
+    http:
+      paths:
+      - backend:
+          serviceName: httpbin-svc-stage
+          servicePort: 80
+---
+# Source: httpbin/templates/ingress-traffic-split50.yaml
+# harness.io/skip-file-for-deploy
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpbin-svc-stage
+  
+  labels:
+    app: httpbin
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "50"
+spec:
+  rules:
+  - host: test.com
+    http:
+      paths:
+      - backend:
+          serviceName: httpbin-svc-stage
+          servicePort: 80
+---
+# Source: httpbin/templates/destinationrule.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  annotations:
+    harness.io/managed: "true"
+  name: httpbin
+spec:
+  host: httpbin-svc-primary
+  trafficPolicy:
+    loadBalancer:
+      simple: RANDOM
+---
+# Source: httpbin/templates/gateway.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: httpbin
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*"
+---
+# Source: httpbin/templates/virtualservice.yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  annotations:
+    harness.io/managed: "true"
+  name: httpbin
+spec:
+  gateways:
+    - httpbin
+  hosts:
+    - example.com
+  http:
+  - route:
+    - destination:
+        host: httpbin-svc-primary
