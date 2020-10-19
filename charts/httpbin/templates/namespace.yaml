@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   name: {{ .Release.Namespace }}
   labels:
-{{- .Values.istio.enabled }}
+{{- if .Values.istio.enabled }}
     istio-injection: enabled
 {{- end }}
