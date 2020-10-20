@@ -1,3 +1,4 @@
+# harness.io/skip-file-for-deploy
 {{- if .Values.istio.enabled }}
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -17,8 +18,8 @@ spec:
     route:
     - destination:
         host: {{ include "httpbin.fullname" . }}-svc-primary
-      weight: 100
+      weight: 50
     - destination:
         host: {{ include "httpbin.fullname" . }}-svc-stage
-      weight: 0
+      weight: 50
 {{- end }}
