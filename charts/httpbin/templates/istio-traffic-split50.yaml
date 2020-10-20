@@ -12,10 +12,7 @@ spec:
   hosts:
     {{- toYaml .Values.istio.hosts | nindent 4}}
   http:
-  - match:
-    - uri:
-        exact: /
-    route:
+  - route:
     - destination:
         host: {{ include "httpbin.fullname" . }}-svc-primary
       weight: 50
