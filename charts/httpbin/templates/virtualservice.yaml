@@ -13,7 +13,7 @@ spec:
   http:
   - match:
     - uri:
-      exact: /
+        exact: /
     route:
     - destination:
         host: {{ include "httpbin.fullname" . }}-svc-primary
