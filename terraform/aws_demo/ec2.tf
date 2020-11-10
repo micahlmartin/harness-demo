@@ -23,7 +23,7 @@ resource "aws_instance" "web" {
 
   key_name = "micah-test"
 
-  vpc_security_group_ids = ["sg-0d70669a5383c4216"]
+  vpc_security_group_ids = ["sg-02dd235fb28d1d9f7"]
 
   tags = {
     Name = "Ansible-Terraform-Test"
