@@ -20,6 +20,8 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
   associate_public_ip_address = true
 
+  key_name = "micah-test"
+
   tags = {
     Name = "HelloWorld"
   }
