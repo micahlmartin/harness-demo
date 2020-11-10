@@ -19,13 +19,14 @@ resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
   associate_public_ip_address = true
+  subnet_id = "subnet-06ae0df47f1cd3b23"
 
   key_name = "micah-test"
 
-  vpc_security_group_ids = ["sg-0a0d70ba176c0edbf"]
+  vpc_security_group_ids = ["sg-0d70669a5383c4216"]
 
   tags = {
-    Name = "HelloWorld"
+    Name = "Ansible-Terraform-Test"
     Owner = "micah.martin@harness.io"
   }
 }
