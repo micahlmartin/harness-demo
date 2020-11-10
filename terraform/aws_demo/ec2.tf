@@ -22,10 +22,14 @@ resource "aws_instance" "web" {
 
   key_name = "micah-test"
 
+  security_groups = ["sg-0a0d70ba176c0edbf"]
+
   tags = {
     Name = "HelloWorld"
+    Owner = "micah.martin@harness.io"
   }
 }
+
 
 output "host" {
   value = "${jsonencode(aws_instance.web[*].public_ip)}"
