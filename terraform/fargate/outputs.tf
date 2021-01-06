@@ -1,5 +1,5 @@
 output "fargate_cluster_arn" {
-  value = aws_ecs_cluster.name.id
+  value = aws_ecs_cluster.main.id
 }
 
 output "fargate_cluster_name" {
