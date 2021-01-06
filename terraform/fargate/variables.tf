@@ -13,3 +13,7 @@ variable "subnet_id" {
 variable "security_group_id" {
   default = "sg-011b1f285fb3c9be1"
 }
+
+variable "region" {
+  default = "us-east-1"
+}
