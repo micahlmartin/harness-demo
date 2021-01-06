@@ -18,6 +18,6 @@ output "security_group_ids" {
   value = data.aws_security_group.selected.id
 }
 
-output "subnets" {
+output "subnet_ids" {
   value = data.aws_subnet.selected.id
 }
