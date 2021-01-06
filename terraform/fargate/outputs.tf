@@ -21,3 +21,7 @@ output "security_group_ids" {
 output "subnet_ids" {
   value = data.aws_subnet.selected.id
 }
+
+output "region" {
+  value = var.region
+}
