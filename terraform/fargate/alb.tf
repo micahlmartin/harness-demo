@@ -1,7 +1,6 @@
 # Create a basic ALB 
 resource "aws_alb" "main" {
   name = var.name
-  vpc_id = data.aws_vpc.selected.id
   security_groups = [aws_security_group.http.id]
   subnets = [data.aws_subnet.selected.id]
 }
