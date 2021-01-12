@@ -25,3 +25,19 @@ output "subnet_ids" {
 output "region" {
   value = var.region
 }
+
+output "primary_target_group" {
+  value = aws_lb_target_group.primary.id
+}
+
+output "stage_target_group" {
+  value = aws_lb_target_group.stage.id
+}
+
+output "primary_listener" {
+  value = aws_lb_listener.primary.id
+}
+
+output "stage_listener" {
+  value = aws_lb_listener.stage.id
+}
