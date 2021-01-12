@@ -13,7 +13,7 @@ data "aws_security_group" "selected" {
 resource "aws_security_group" "http" {
   name        = "${var.name}-http"
   description = "Allow inbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = data.aws_vpc.selected.id
 
   ingress {
     description = "port_80"
