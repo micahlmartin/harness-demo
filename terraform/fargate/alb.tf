@@ -4,7 +4,7 @@ resource "aws_lb" "main" {
   internal = false
   load_balancer_type = "application"
   security_groups = [aws_security_group.http.id]
-  subnets = [data.aws_subnets.selected.*.id]
+  subnets = [data.aws_subnet.selected.*.id]
 }
 
 # Create primary target group
