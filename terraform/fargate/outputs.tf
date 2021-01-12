@@ -27,7 +27,7 @@ output "region" {
 }
 
 output "lb_id" {
-  value = var.aws_lb.main.id
+  value = aws_lb.main.id
 }
 
 output "primary_target_group" {
