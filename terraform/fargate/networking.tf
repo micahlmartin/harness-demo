@@ -2,8 +2,9 @@ data "aws_vpc" "selected" {
   id = var.vpc_id
 }
 
-data "aws_subnet" "selected" {
-  id = var.subnet_id
+data "aws_subnets" "selected" {
+  count = length(split(",", var.subnet_ids))
+  id = split(",", var.subnet_ids)[count.index]
 }
 
 data "aws_security_group" "selected" {

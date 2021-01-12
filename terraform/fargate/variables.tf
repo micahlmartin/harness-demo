@@ -6,8 +6,8 @@ variable "vpc_id" {
   default = "vpc-0e7bedb2e71dd8025"
 }
 
-variable "subnet_id" {
-  default = "subnet-0d3650898e5d4ca9a"
+variable "subnet_ids" {
+  default = "subnet-0d3650898e5d4ca9a,subnet-03f25ce1cd0535df9"
 }
 
 variable "security_group_id" {
