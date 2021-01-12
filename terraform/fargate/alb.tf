@@ -3,7 +3,7 @@ resource "aws_alb" "main" {
   name = var.name
   vpc_id = var.vpc_id
   security_group_ids = [aws_security_group.main.id]
-  subnets = [var.subnet_ids]
+  subnets = [var.subnet_id]
 }
 
 # Create primary target group
