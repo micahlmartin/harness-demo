@@ -32,10 +32,10 @@ resource "aws_alb_listener" "primary" {
 
 
 # Create the staging Listener 
-resource "aws_alb_listener" "staging" {
+resource "aws_alb_listener" "stage" {
   
   default_action {
-    target_group_arn = aws_alb_target_group.staging.id
+    target_group_arn = aws_alb_target_group.stage.id
     type = "forward"
   }
 
