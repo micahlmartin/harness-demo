@@ -19,7 +19,7 @@ output "security_group_ids" {
 }
 
 output "subnet_ids" {
-  value = data.aws_subnet.selected.id
+  value = data.aws_subnets.selected.*.id
 }
 
 output "region" {
