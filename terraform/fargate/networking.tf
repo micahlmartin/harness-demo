@@ -7,10 +7,6 @@ data "aws_subnet" "selected" {
   id = split(",", var.subnet_ids)[count.index]
 }
 
-data "aws_security_group" "selected" {
-  id = var.security_group_id
-}
-
 resource "aws_security_group" "http" {
   name        = "${var.name}-http"
   description = "Allow inbound traffic"

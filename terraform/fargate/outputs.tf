@@ -15,7 +15,7 @@ output "vpc_id" {
 }
 
 output "security_group_ids" {
-  value = data.aws_security_group.selected.id
+  value = aws_security_group.http.id
 }
 
 output "subnet_ids" {
