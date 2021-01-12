@@ -18,7 +18,7 @@ resource "aws_lb_target_group" "primary" {
 
 # Create staging target group
 resource "aws_lb_target_group" "stage" {
-  name = "${var.name}-primary"
+  name = "${var.name}-stage"
   vpc_id = data.aws_vpc.selected.id
   target_type = "ip"
   port = 80
