@@ -8,42 +8,42 @@ resource "aws_lb" "main" {
 }
 
 # Create primary target group
-resource "aws_alb_target_group" "primary" {
+resource "aws_lb_target_group" "primary" {
   name = "${var.name}-primary"
   port = 80
   protocol = "HTTP"
 }
 
 # Create staging target group
-resource "aws_alb_target_group" "stage" {
+resource "aws_lb_target_group" "stage" {
   name = "${var.name}-primary"
   port = 80
   protocol = "HTTP"
 }
 
 # Create the primary Listener 
-resource "aws_alb_listener" "primary" {
+resource "aws_lb_listener" "primary" {
   
   default_action {
-    target_group_arn = aws_alb_target_group.primary.id
+    target_group_arn = aws_lb_target_group.primary.id
     type = "forward"
   }
 
-  load_balancer_arn = aws_alb.main.id
+  load_balancer_arn = aws_lb.main.id
   port = 80 
   protocol = "HTTP"
 }
 
 
 # Create the staging Listener 
-resource "aws_alb_listener" "stage" {
+resource "aws_lb_listener" "stage" {
   
   default_action {
-    target_group_arn = aws_alb_target_group.stage.id
+    target_group_arn = aws_lb_target_group.stage.id
     type = "forward"
   }
 
-  load_balancer_arn = aws_alb.main.id
+  load_balancer_arn = aws_lb.main.id
   
   port = 8080
   
