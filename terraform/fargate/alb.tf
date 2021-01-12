@@ -10,6 +10,7 @@ resource "aws_lb" "main" {
 # Create primary target group
 resource "aws_lb_target_group" "primary" {
   name = "${var.name}-primary"
+  vpc_id = data.aws_vpc.selected.id
   port = 80
   protocol = "HTTP"
 }
@@ -17,6 +18,7 @@ resource "aws_lb_target_group" "primary" {
 # Create staging target group
 resource "aws_lb_target_group" "stage" {
   name = "${var.name}-primary"
+  vpc_id = data.aws_vpc.selected.id
   port = 80
   protocol = "HTTP"
 }
