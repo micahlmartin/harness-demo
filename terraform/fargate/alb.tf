@@ -11,6 +11,7 @@ resource "aws_lb" "main" {
 resource "aws_lb_target_group" "primary" {
   name = "${var.name}-primary"
   vpc_id = data.aws_vpc.selected.id
+  target_type = "ip"
   port = 80
   protocol = "HTTP"
 }
@@ -19,6 +20,7 @@ resource "aws_lb_target_group" "primary" {
 resource "aws_lb_target_group" "stage" {
   name = "${var.name}-primary"
   vpc_id = data.aws_vpc.selected.id
+  target_type = "ip"
   port = 80
   protocol = "HTTP"
 }
